@@ -1,0 +1,58 @@
+<html> 
+ <head>
+    <title></title> 
+</head>
+ <body>
+    <p align="center"> 
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body> 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+ <script>
+var sketchProc = function(processingInstance) {
+with (processingInstance) {
+//START
+size(400, 400); 
+frameRate(120);
+
+noStroke();
+var numSquares = 106;
+var a = 39;
+var y = 400-a;
+var x = 400-a;
+var widt1 = a;
+
+for (var i = 0; i < numSquares; i++) {
+    fill(floor(random(0,255)),floor(random(0,255)),floor(random(0,255)));
+    rect(x,y,widt1,widt1);
+    y = y - a;
+    if(y < 0){
+        y = 0;
+        x = x - a;
+        a = -a;
+    }
+    if(y > 400){
+        y = 400-a;
+        x = x + a;
+        a = -a;
+    }
+
+}
+
+
+//END
+}
+};
+
+var canvas = document.getElementById("mycanvas"); 
+var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
+
+
+git init
+git commit -m "first commit"
+git remote add origin https://github.com/DanielGudz/squaresChangeSize.git
+
+git push -u origin master
